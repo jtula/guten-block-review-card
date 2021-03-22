@@ -1,0 +1,49 @@
+# Packages #
+############
+*.7z
+*.dmg
+*.gz
+*.bz2
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+*.tgz
+*.map
+
+# Logs and databases #
+######################
+*.log
+*.sql
+
+# OS generated files #
+######################
+**.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+._*
+
+# Composer #
+##########
+vendors/composer/
+!assets/js/vendor/
+wpcs/
+composer.lock
+
+# NPM #
+##########
+node_modules
+**/node_modules/**
+
+# CGB
+.idea/
+.vscode/
+node_modules/
+.DS_Store
+*.tgz
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+/.changelog
