@@ -4,11 +4,23 @@
  * CSS for both Frontend+Backend.
  */
 
-.wp-block-cgb-block-review-card  {
-  background: $red;
-  border: 0.2rem solid $black;
+.wp-block-review-card-main  {
+  background-color: rgba(255, 255, 255, 0.55);
+  border-radius: 11px;
+  border: 1px solid $gray;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   color: $black;
-  margin: 0 auto;
-  max-width: 740px;
-  padding: 2rem;
+  margin: 10px 20px 10px 20px;
+  margin: auto;
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+.wp-block-review-card-main .card__image {
+  padding-top: 15px;
+  border-radius: 50%;
+}
+
+.wp-block-review-card-main .card__content {
+  padding: 15px;
 }
