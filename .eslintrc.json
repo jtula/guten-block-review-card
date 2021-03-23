@@ -3,6 +3,7 @@
 	"parser": "babel-eslint",
 	"extends": [
 		"wordpress",
+		"eslint:recommended",
 		"plugin:react/recommended",
 		"plugin:jsx-a11y/recommended",
 		"plugin:jest/recommended"
@@ -33,7 +34,8 @@
 		}
 	},
 	"rules": {
-		"array-bracket-spacing": ["error", "always"],
+		"quotes": ["error", "double"],
+		"array-bracket-spacing": ["error", "never"],
 		"brace-style": ["error", "1tbs"],
 		"camelcase": ["error", { "properties": "never" }],
 		"comma-dangle": ["error", "always-multiline"],
@@ -158,7 +160,7 @@
 		"react/jsx-curly-spacing": [
 			"error",
 			{
-				"when": "always",
+				"when": "never",
 				"children": true
 			}
 		],
@@ -174,13 +176,13 @@
 		"semi-spacing": "error",
 		"space-before-blocks": ["error", "always"],
 		"space-before-function-paren": ["error", "never"],
-		"space-in-parens": ["error", "always"],
+		"space-in-parens": ["error", "never"],
 		"space-infix-ops": ["error", { "int32Hint": false }],
 		"space-unary-ops": [
 			"error",
 			{
 				"overrides": {
-					"!": true
+					"!": false
 				}
 			}
 		],
