@@ -16,25 +16,65 @@
  * Can include things like variables and mixins
  * that are used across the project.
 */
-.wp-block .container {
-  border: 1px solid #cccccc;
-  padding: 1rem;
-  text-align: center; }
+.wp-block .wp-block-review-card-main button.add-more-review {
+  height: 55px;
+  width: 55px;
+  background: #007cba;
+  border-radius: 50%;
+  position: relative;
+  margin-left: 20px;
+  border: none;
+  font-size: 2em;
+  color: white;
+  line-height: 1; }
 
-.wp-block .button-container {
-  text-align: center;
-  padding: 22% 0;
-  background: #f1f1f1;
-  border: 1px solid #cccccc;
-  border-radius: 2px;
-  margin: 0 0 1.2rem 0; }
+.wp-block .review-card-wrapper {
+  background-color: transparent;
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  padding: 30px 10px;
+  padding-right: 0;
+  margin: 0 auto;
+  border-radius: 10px; }
 
-.wp-block .heading {
-  font-size: 1.5rem;
-  font-weight: 600;
-  text-align: center; }
+.wp-block .review-card-wrapper::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari and Opera */ }
 
-.wp-block .image {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%; }
+.wp-block .review-card-wrapper {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */ }
+
+.wp-block .gts__picture {
+  position: relative; }
+  .wp-block .gts__picture .gts__picture__image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid #dadada;
+    font-size: .8em;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%); }
+
+.remove-review {
+  height: 30px;
+  width: 30px;
+  background: gray;
+  border-radius: 50%;
+  border: none;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  left: 40%; }

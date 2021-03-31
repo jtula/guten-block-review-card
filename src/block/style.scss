@@ -3,24 +3,81 @@
  *
  * CSS for both Frontend+Backend.
  */
+ .review-slider {
+	background-color: rgba(255, 255, 255, 0.55);
+	border-radius: 11px;
+	border: 1px solid #cccccc;
+	-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	color: #292929;
+	margin: 10px 20px 10px 20px;
+	padding-bottom: 15px;
+	text-align: center;
+	flex-shrink: 0;
+	width: 250px;
+ }
 
-.wp-block-review-card-main  {
-  background-color: rgba(255, 255, 255, 0.55);
-  border-radius: 11px;
-  border: 1px solid $gray;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  color: $black;
-  margin: 10px 20px 10px 20px;
-  margin: auto;
-  padding-bottom: 15px;
-  text-align: center;
+.review-card-wrapper-front {
+	width: '100%';
+	display: flex;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+	scroll-snap-points-x: repeat(250px);
+	scroll-snap-type: mandatory;
+	scroll-snap-type: x mandatory;
+	scroll-behavior: smooth;  
 }
 
-.wp-block-review-card-main .card__image {
-  padding-top: 15px;
-  border-radius: 50%;
+.review-card-wrapper-front::-webkit-scrollbar {
+	display: none; /* Chrome, Safari and Opera */
+  }
+  
+.review-card-wrapper-front {
+-ms-overflow-style: none;  /* IE and Edge */
+scrollbar-width: none;  /* Firefox */
 }
 
-.wp-block-review-card-main .card__content {
-  padding: 15px;
+@keyframes review-slider {
+	0% {
+	  transform: translate(0, 0);
+	}
+	100% {
+	  transform: translate(-100%, 0);
+	}
+  }
+
+.wp-block-review-content {
+
+	.gts__picture {
+		position: relative;
+	  
+		.gts__picture__image {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			width: 100px;
+			height: 100px;			
+			border-radius: 50%;
+			overflow: hidden;
+			border: 1px solid #dadada;
+			font-size: .8em;
+			background-size: cover;
+			background-position: center;
+		}
+	  }
+}
+
+.wp-block-review-card-main .wp-block-review-content {
+	padding: 20px;
+}
+
+.wp-block-review-quote {
+	display: flex;
+	justify-content: center;
+}
+
+.wp-block-review-content {
+	.content-plain-text {
+		margin-top: 70px;
+	}
 }
