@@ -13,6 +13,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+function gts_block_assets() {
+	// Styles.
+	wp_enqueue_style( 'gts-style-css', plugins_url( 'dist/blocks.style.build.css', dirname( __FILE__ ) ) );
+
+	wp_enqueue_style('flickity-style', plugins_url( 'lib/css/flickity.min.css', dirname( __FILE__ ) ) );
+
+	wp_enqueue_script('flickity-script',  plugins_url( 'lib/js/flickity.pkgd.min.js', dirname( __FILE__ ) ), array('jquery'));
+} 
+
+// Hook: Frontend assets.
+add_action( 'enqueue_block_assets', 'gts_block_assets' );
+
 /**
  * Enqueue Gutenberg block assets for both frontend + backend.
  *
