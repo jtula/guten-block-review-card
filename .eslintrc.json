@@ -47,7 +47,7 @@
 		"eol-last": "error",
 		"eqeqeq": "error",
 		"func-call-spacing": "error",
-		"indent": ["error", "tab", { "SwitchCase": 1 }],
+		"indent": ["error", "space", { "SwitchCase": 2 }],
 		"jsx-a11y/label-has-for": [
 			"error",
 			{
@@ -186,7 +186,7 @@
 				}
 			}
 		],
-		"template-curly-spacing": ["error", "always"],
+		"template-curly-spacing": ["error", "never"],
 		"valid-jsdoc": ["error", { "requireReturn": false }],
 		"valid-typeof": "error",
 		"yoda": "off"
