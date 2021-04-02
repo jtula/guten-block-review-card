@@ -16,8 +16,10 @@ import "./style.scss";
 import {
   MediaUpload,
   MediaUploadCheck,
+  PlainText,
   RichText,
 } from "@wordpress/block-editor";
+
 import { registerBlockType } from "@wordpress/blocks";
 
 registerBlockType("review-card/main", {
@@ -31,6 +33,7 @@ registerBlockType("review-card/main", {
       attribute: "id",
     },
     showButtons: { type: "boolean", default: true },
+    autoPlay: { type: "number", default: 5000 },
     reviews: {
       source: "query",
       default: [],
@@ -50,7 +53,7 @@ registerBlockType("review-card/main", {
   },
   edit(props) {
     const { attributes, className, setAttributes } = props;
-    const { reviews, showButtons } = attributes;
+    const { reviews, showButtons, autoPlay } = attributes;
 
     const ALLOWED_MEDIA_TYPES = ["image"];
 
@@ -230,13 +233,24 @@ registerBlockType("review-card/main", {
           checked={showButtons}
           onClick={handleButtons}
         />
+        <label className="auto-play-label" for="auto-play">
+          Auto Play(ms):
+        </label>
+        <PlainText
+          id="auto-play"
+          name="auto-play"
+          className="auto-play"
+          value={autoPlay}
+          autoFocus
+          onChange={(value) => setAttributes({ autoPlay: value })}
+        />
         <div className="review-card-wrapper">{reviewList}</div>
       </div>
     );
   },
 
   save({ attributes }) {
-    const { id, reviews, showButtons } = attributes;
+    const { id, reviews, showButtons, autoPlay } = attributes;
     const reviewsList = reviews.map((review) => {
       return (
         <div className="carousel-cell review-slider review" key={review.index}>
@@ -280,7 +294,7 @@ registerBlockType("review-card/main", {
     });
 
     if (reviews.length > 0) {
-      const str = `{ "groupCells": true, "autoPlay": true, "prevNextButtons": ${showButtons}, "pageDots": ${showButtons} }`;
+      const str = `{ "groupCells": true, "freeScroll": true, "draggable": true, "contain": true, "autoPlay": ${autoPlay}, "pauseAutoPlayOnHover": false, "prevNextButtons": ${showButtons}, "pageDots": ${showButtons} }`;
 
       return (
         <div className="carousel slide" data-flickity={str} id={id}>

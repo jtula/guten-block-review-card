@@ -10,12 +10,12 @@
 	-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	color: #292929;
-	margin: 10px 20px 10px 20px;
-	padding-bottom: 15px;
+	margin: 10px 15px;
+	padding-bottom: 10px;
 	text-align: center;
 	flex-shrink: 0;
 	width: 230px;
-	min-height: 96%;
+	min-height: 97%;
 }
 
 @keyframes review-slider {
@@ -36,12 +36,11 @@
 			display: block;
 			margin-left: auto;
 			margin-right: auto;
-			width: 100px;
-			height: 100px;			
+			width: 110px;
+			height: 110px;			
 			border-radius: 50%;
 			overflow: hidden;
 			border: 1px solid #dadada;
-			font-size: .8em;
 			background-size: cover;
 			background-position: center;
 		}
@@ -50,13 +49,12 @@
 
 .wp-block-review-card-main .wp-block-review-content {
 	padding: 20px;
-	font-size: .7em;
+	font-size: 11pt;
 }
 
 .wp-block-review-quote {
 	display: flex;
 	justify-content: center;
-
 
 }
 
@@ -66,12 +64,12 @@
 	}
 
 	.review-title {
-		font-size: 12pt;
+		font-size: 13pt;
 		padding: 15px 0;
 	}
 
 	.review-author {
-		font-size: 10pt;
+		font-size: 11pt;
 		padding-top: 20px;
 	}
 }

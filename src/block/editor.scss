@@ -20,9 +20,25 @@
       color: white;
       line-height: 1;
     }
+
     .wp-block-review-card-main .show-button {
       font-size: .8em;
       padding-right: 6px;
+    }
+
+    .wp-block-review-card-main .auto-play-label {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .wp-block-review-card-main .auto-play {
+      width: 100px;
+      border: 1px solid;
+      height: 30px !important;
+      overflow-y: hidden !important;
+      padding-left: 5px;
+      position: relative;
+      top: 5px;
     }
 
     .review-card-wrapper {
@@ -39,6 +55,8 @@
     
       .gts__picture__image {
         position: absolute;
+        width: 100px;
+        height: 100px;		
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
