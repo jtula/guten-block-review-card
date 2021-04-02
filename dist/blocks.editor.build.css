@@ -42,25 +42,15 @@
   margin: 0 auto;
   border-radius: 10px; }
 
-.wp-block .gts__picture {
-  position: relative; }
-  .wp-block .gts__picture .gts__picture__image {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 1px solid #dadada;
-    font-size: .8em;
-    background-size: cover;
-    background-position: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%); }
+.wp-block .gts__picture .gts__picture__image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%); }
 
-.remove-review {
+.wp-block .remove-review {
   height: 30px;
   width: 30px;
   background: gray;

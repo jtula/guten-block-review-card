@@ -25,7 +25,7 @@
       padding-right: 6px;
     }
 
-    .review-card-wrapper{
+    .review-card-wrapper {
       background-color: transparent;
       display: flex;
       overflow-x: scroll;
@@ -36,18 +36,8 @@
     }
 
     .gts__picture {
-      position: relative;
     
       .gts__picture__image {
-        width: 100px;
-        height: 100px;
-        // margin: -50px 0 0 -50px;
-        border-radius: 50%;
-        overflow: hidden;
-        border: 1px solid #dadada;
-        font-size: .8em;
-        background-size: cover;
-        background-position: center;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -55,17 +45,19 @@
       }
     }
 
+    .remove-review {
+      height: 30px;
+      width: 30px;
+      background: gray;
+      border-radius: 50%;
+      border: none;
+      color: white;
+      cursor: pointer;
+      position: relative;
+      left: 40%;
+  }
+
  }
 
- .remove-review {
-  height: 30px;
-  width: 30px;
-  background: gray;
-  border-radius: 50%;
-  border: none;
-  color: white;
-  cursor: pointer;
-  position: relative;
-  left: 40%;
-}
+
  

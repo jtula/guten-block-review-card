@@ -14,7 +14,8 @@
 	padding-bottom: 15px;
 	text-align: center;
 	flex-shrink: 0;
-	width: 250px;
+	width: 230px;
+	min-height: 96%;
 }
 
 @keyframes review-slider {
@@ -55,10 +56,22 @@
 .wp-block-review-quote {
 	display: flex;
 	justify-content: center;
+
+
 }
 
 .wp-block-review-content {
 	.content-plain-text {
 		margin-top: 70px;
+	}
+
+	.review-title {
+		font-size: 12pt;
+		padding: 15px 0;
+	}
+
+	.review-author {
+		font-size: 10pt;
+		padding-top: 20px;
 	}
 }
