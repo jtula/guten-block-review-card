@@ -15,26 +15,6 @@
 	text-align: center;
 	flex-shrink: 0;
 	width: 250px;
- }
-
-.review-card-wrapper-front {
-	width: '100%';
-	display: flex;
-	overflow-x: auto;
-	-webkit-overflow-scrolling: touch;
-	scroll-snap-points-x: repeat(250px);
-	scroll-snap-type: mandatory;
-	scroll-snap-type: x mandatory;
-	scroll-behavior: smooth;  
-}
-
-.review-card-wrapper-front::-webkit-scrollbar {
-	display: none; /* Chrome, Safari and Opera */
-  }
-  
-.review-card-wrapper-front {
--ms-overflow-style: none;  /* IE and Edge */
-scrollbar-width: none;  /* Firefox */
 }
 
 @keyframes review-slider {
@@ -69,6 +49,7 @@ scrollbar-width: none;  /* Firefox */
 
 .wp-block-review-card-main .wp-block-review-content {
 	padding: 20px;
+	font-size: .7em;
 }
 
 .wp-block-review-quote {

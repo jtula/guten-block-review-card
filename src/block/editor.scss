@@ -9,42 +9,30 @@
  .wp-block { // This may need to be .wp-block in WordPress 5+
 
     .wp-block-review-card-main button.add-more-review {
-      height: 55px;
-      width: 55px;
+      width: 40px;
+      height: 40px;
       background: #007cba;
       border-radius: 50%;
       position: relative;
-      margin-left: 20px;
+      margin: 20px;
       border: none;
       font-size: 2em;
       color: white;
       line-height: 1;
     }
+    .wp-block-review-card-main .show-button {
+      font-size: .8em;
+      padding-right: 6px;
+    }
 
     .review-card-wrapper{
       background-color: transparent;
-      width: 100%;
-      
+      display: flex;
       overflow-x: scroll;
       overflow-y: hidden;
-      
-      display: grid !important;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      
       padding: 30px 10px;
-      padding-right: 0;
-      
       margin: 0 auto;
       border-radius: 10px;
-    }
-    
-    .review-card-wrapper::-webkit-scrollbar {
-      display: none; /* Chrome, Safari and Opera */
-    }
-    
-    .review-card-wrapper {
-      -ms-overflow-style: none;  /* IE and Edge */
-      scrollbar-width: none;  /* Firefox */
     }
 
     .gts__picture {
