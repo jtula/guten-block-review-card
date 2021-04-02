@@ -26,24 +26,31 @@ registerBlockType("review-card/main", {
   category: "common",
   attributes: {
     id: {
-      id: { type: "number " },
+      source: "attribute",
+      selector: "div.slide",
+      attribute: "id",
     },
+    showButtons: { type: "boolean", default: true },
     reviews: {
       source: "query",
       default: [],
+      selector: "div.review",
       query: {
-        index: { type: "number" },
-        url: { type: "string", default: "" },
-        alt: { type: "string" },
-        title: { type: "string" },
-        content: { type: "string" },
-        author: { type: "string" },
+        index: { source: "text", selector: "div.review-index" },
+        image: {
+          source: "attribute",
+          selector: "img",
+          attribute: "src",
+        },
+        title: { source: "html", selector: "div.review-title" },
+        content: { source: "html", selector: "div.review-content" },
+        author: { source: "html", selector: "div.review-author" },
       },
     },
   },
   edit(props) {
     const { attributes, className, setAttributes } = props;
-    const { reviews } = attributes;
+    const { reviews, showButtons } = attributes;
 
     const ALLOWED_MEDIA_TYPES = ["image"];
 
@@ -56,9 +63,9 @@ registerBlockType("review-card/main", {
 
     const reviewList = reviews
       .sort((a, b) => a.index - b.index)
-      .map((review, idx) => {
+      .map((review) => {
         return (
-          <div key={idx} className="review-slider">
+          <div key={review.index} className="review-slider">
             <button
               className="remove-review"
               onClick={() => {
@@ -85,11 +92,11 @@ registerBlockType("review-card/main", {
                   <MediaUploadCheck>
                     <MediaUpload
                       onSelect={(media) => {
-                        const url = media.sizes.medium
+                        const image = media.sizes.medium
                           ? media.sizes.medium.url
                           : media.url;
                         const newObject = Object.assign({}, review, {
-                          url,
+                          image,
                         });
                         setAttributes({
                           reviews: [
@@ -102,13 +109,13 @@ registerBlockType("review-card/main", {
                       }}
                       allowedTypes={ALLOWED_MEDIA_TYPES}
                       type="image"
-                      value={review.url}
+                      value={review.image}
                       render={({ open }) =>
-                        review.url ? (
+                        review.image ? (
                           <div
                             className="gts__picture__image"
                             style={{
-                              backgroundImage: `url(${review.url})`,
+                              backgroundImage: `url(${review.image})`,
                             }}
                             onClick={open}
                           />
@@ -188,9 +195,12 @@ registerBlockType("review-card/main", {
         );
       });
 
+    const handleButtons = () => {
+      setAttributes({ showButtons: !showButtons });
+    };
+
     return (
       <div className={className}>
-        <div className="review-card-wrapper">{reviewList}</div>
         <button
           className="add-more-review"
           onClick={() =>
@@ -200,11 +210,9 @@ registerBlockType("review-card/main", {
                 {
                   index: attributes.reviews.length,
                   url: "",
-                  alt: "",
                   title: "",
                   content: "",
                   author: "",
-                  position: "",
                 },
               ],
             })
@@ -212,36 +220,59 @@ registerBlockType("review-card/main", {
         >
           +
         </button>
+        <label className="show-button" for="show-button">
+          Show Buttons
+        </label>
+        <input
+          type="checkbox"
+          id="show-button"
+          name="show-button"
+          checked={showButtons}
+          onClick={handleButtons}
+        />
+        <div className="review-card-wrapper">{reviewList}</div>
       </div>
     );
   },
 
   save({ attributes }) {
-    const { id, reviews } = attributes;
+    const { id, reviews, showButtons } = attributes;
     const reviewsList = reviews.map((review) => {
       return (
-        <div className="carousel-cell review-slider" key={review.index}>
+        <div className="carousel-cell review-slider review" key={review.index}>
+          <div className="review-index" style={{ display: "none" }}>
+            {review.index}
+          </div>
           <div className="wp-block-review-quote">
             <div className="wp-block-review-content">
-              {review.url && (
+              {review.image && (
                 <div className="gts__picture">
+                  <img src={review.image} style={{ display: "none" }} />
                   <div
                     className="gts__picture__image"
                     style={{
-                      backgroundImage: `url(${review.url})`,
+                      backgroundImage: `url(${review.image})`,
                     }}
                   />
                 </div>
               )}
-              <div>
-                <RichText.Content value={review.title} />
-              </div>
-              <div>
-                <RichText.Content value={review.content} />
-              </div>
-              <div>
-                <RichText.Content value={review.author} />
-              </div>
+              <RichText.Content
+                tagName="div"
+                className="review-title"
+                allowedFormats={["core/bold", "core/italic"]}
+                formattingControls={["bold", "italic", "underline"]}
+                value={review.title}
+              />
+              <RichText.Content
+                tagName="div"
+                className="review-content"
+                value={review.content}
+              />
+              <RichText.Content
+                tagName="div"
+                className="review-author"
+                value={review.author}
+              />
             </div>
           </div>
         </div>
@@ -249,15 +280,14 @@ registerBlockType("review-card/main", {
     });
 
     if (reviews.length > 0) {
+      const str = `{ "groupCells": true, "autoPlay": true, "prevNextButtons": ${showButtons}, "pageDots": ${showButtons} }`;
+
       return (
-        <div
-          className="carousel"
-          data-flickity='{ "groupCells": true, "autoPlay": true }'
-        >
+        <div className="carousel slide" data-flickity={str} id={id}>
           {reviewsList}
         </div>
       );
     }
-    return <div></div>;
+    return null;
   },
 });

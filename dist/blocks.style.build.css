@@ -55,7 +55,8 @@
     background-position: center; }
 
 .wp-block-review-card-main .wp-block-review-content {
-  padding: 20px; }
+  padding: 20px;
+  font-size: .7em; }
 
 .wp-block-review-quote {
   display: -ms-flexbox;
